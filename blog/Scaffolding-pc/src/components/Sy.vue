@@ -61,9 +61,10 @@ export default {
   .J_box{
     margin: 0 auto;
     overflow: hidden;
+    background: black;
     // background: url('../assets/images/12944595.jpeg') top center no-repeat;
-    background: url('http://www.yoyibk.top/content/uploadfile/tpl_options//bgimage.jpg') top center no-repeat;
-    background-size: cover;
+    // background: url('http://www.yoyibk.top/content/uploadfile/tpl_options//bgimage.jpg') top center no-repeat;
+    // background-size: cover;
     position: relative;
     font-family: font;
     cursor: pointer;
