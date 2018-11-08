@@ -1,0 +1,75 @@
+/*覆盖样式*/
+.block{
+  width: 700px;
+  margin: 30px auto;
+}
+
+/*播放器*/
+.aplayer{
+  width: 326px;
+  border-radius: 10px;
+  position: absolute !important;
+  right: 5px;
+  top: 5px;
+  transition: all 1s;
+}
+.al_fh{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/*qq提示按钮*/
+.el-button{
+  background: transparent !important;
+  position: absolute;
+  top: 0;
+  right: 190px;
+  height: 50px;
+  font-size: 16px !important;
+  border: 1px transparent solid !important;
+  color: #fff !important;
+}
+.el-button:hover{
+  border: 1px transparent solid !important;
+  color: salmon !important;
+}
+.j_wx{
+  position: absolute;
+  background: transparent !important;
+  position: absolute;
+  top: 0;
+  right: 50px;
+  height: 50px;
+  font-size: 16px !important;
+  border: 1px transparent solid !important;
+}
+
+/*home轮播组件*/
+.el-carousel__item .al_bg {
+  width: 409px;
+  height: 360px;
+  overflow: hidden;
+}
+.el-carousel{
+  width: 1200px;
+  background: rgba(245, 239, 239, 0.3);
+  border-radius: 8px;
+}
+.el-carousel__indicators--outside button{
+  background-color: gray;
+}
+.el-carousel__container{
+  height: 360px !important;
+}
+
+/*日历组件*/
+.wh_content_all{
+  background: rgba(245, 239, 239, 0.2) !important;
+}
+.wh_isToday{
+  background: green !important;
+}
+.wh_container{
+  background: gray;
+}

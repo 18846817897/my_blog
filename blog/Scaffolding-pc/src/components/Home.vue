@@ -1,0 +1,208 @@
+<template lang="pug">
+  div.al_box(ref='homePage')
+    div.al_cont
+      p.al_title  {{moduleinfo.item_title}}
+      p.al_motto  {{moduleinfo.item_motto}}
+      p.al_hx
+      p.grow(@click='go_grow')  {{moduleinfo.item_grow}}
+      p.skill {{moduleinfo.item_skill}}
+      p.photo {{moduleinfo.item_photo}}
+      p.message {{moduleinfo.item_message}}
+      a(href='http://yangwenlong.sxl.cn', class='al_link') {{moduleinfo.item_link}}
+    aplayer(autoplay :music="music", class='J_music')
+      div.J_back
+    //- img.al_fh(src='../assets/images/fh.png')
+    img.al_music(src='../assets/images/timg.jpg', v-show='status', ref='music', @mouseover='moveMusic')
+</template>
+<script>
+import Aplayer from 'vue-aplayer'
+export default {
+  name: 'home',
+  data () {
+    return {
+      moduleinfo: {
+        'item_title': 'Along的个人博客',
+        'item_motto': 'Do not give up easily ~ Strive',
+        'item_grow': '>>我的主页 (Grow up)',
+        'item_skill': '>>我的博文 (Post)',
+        'item_photo': '>>我的相册 (Photo)',
+        'item_message': '>>给我留言 (Leave a message)',
+        'item_link': 'http://yangwenlong.sxl.cn'
+      },
+      music: {
+        'title': 'Preparation',
+        'author': 'Hans Zimmer/Richard Harvey',
+        'url': '../../static/Taylor_Swif.mp3',
+        'pic': 'https://img.alicdn.com/tfs/TB1GMRZmxnaK1RjSZFtXXbC2VXa-640-640.jpg',
+        'lrc': '[00:00.00]lrc here\n[00:01.00]aplayer'
+      },
+      clientHeight:'',
+      status: false
+    }
+  },
+  methods: {
+    go_grow () {
+      this.$router.replace('/sy')
+    },
+    moveMusic () {
+      this.status = !this.status
+      document.querySelector('.aplayer').style.transform = `translate(0,0)`
+    },
+  },
+  mounted () {
+    setTimeout(()=>{
+      document.querySelector('.aplayer').style.transform = `translate(336px,0)`
+      setTimeout(()=>{
+        this.status = !this.status
+      },800)
+    },2000)
+
+    fetch('http://127.0.0.1:3001/home',{
+        credentials:'include'
+    }).then(
+      res=>res.json()
+    ).then(
+      data=>console.log(data,'data')
+    )
+  },
+  components: {
+    Aplayer
+  }
+}
+</script>
+<style lang="less" scoped>
+  @font-face {
+    font-family: font;
+    src: url("../assets/fonts/AaPrincessPeach.ttf")format("truetype");
+  }
+  @b: #fff;
+  .al_box{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    background: url('http://www.ruanyifeng.com/images_pub/pub_355.jpg') top center no-repeat;
+    background-size: cover;
+    position: relative;
+    font-family: font;
+    position: relative;
+    cursor: pointer;
+    .al_cont{
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      width: 600px;
+      height: 400px;
+      border-radius: 10px;
+      overflow: hidden;
+      background: rgba(0, 0, 0, .3);
+      .al_title{
+        width: 100%;
+        height: 45px;
+        overflow: hidden;
+        margin: 0 auto;
+        line-height: 45px;
+        font-size: 25px;
+        color: @b;
+        text-align: center;
+        margin-top: 10px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        &:hover{
+          color: salmon;
+        }
+      }
+      .al_motto{
+        width: 100%;
+        height: 30px;
+        overflow: hidden;
+        margin: 0 auto;
+        line-height: 30px;
+        font-size: 20px;
+        color: @b;
+        text-align: center;
+        margin-top: 10px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        &:hover{
+          color: salmon;
+        }
+      }
+      .al_hx{
+        width: 90%;
+        height: 2px;
+        background: @b;
+        border-radius: 3px;
+        overflow: hidden;
+        margin: 0 auto;
+        margin-top: 20px;
+      }
+      .grow{
+        width: 90%;
+        height: 40px;
+        overflow: hidden;
+        margin: 0 auto;
+        background: rgba(0, 0, 0, .5);
+        margin-top: 35px;
+        border-radius: 10px;
+        color: @b;
+        line-height: 40px;
+        font-size: 20px;
+        text-indent: 10px;
+        &:hover{
+          color: salmon;
+        }
+      }
+      .skill,.photo,.message{
+        width: 90%;
+        height: 40px;
+        overflow: hidden;
+        margin: 0 auto;
+        background: rgba(0, 0, 0, .5);
+        margin-top: 20px;
+        border-radius: 10px;
+        color: @b;
+        line-height: 40px;
+        font-size: 20px;
+        text-indent: 10px;
+        &:hover{
+          color: salmon;
+        }
+      }
+      .al_link{
+        color: @b;
+        margin-left: 392px;
+        display: inline-block;
+        margin-top: 5px;
+        &:hover{
+          color: salmon;
+        }
+      }
+    }
+    .J_music{
+      position: relative;
+      .J_back{
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background: darkblue;
+        left: 0;
+        top: 0;
+      }
+    }
+    .al_music{
+      display: block;
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border-radius:50%;
+      overflow: hidden;
+      right: 26px;
+      top: 22px;
+      transition: all 60s;
+    }
+  }
+</style>
