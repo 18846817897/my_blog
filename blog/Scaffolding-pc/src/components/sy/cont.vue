@@ -4,18 +4,18 @@
 			//- el-carousel(:interval="4000", type="card", height="200px")
 			//- 	el-carousel-item(v-for="(item, index) in this.url" :key="index")
 			//- 		img.al_bg(:src='item.item_pic')
-			div.al_ul
-				div.al_li(v-for='(item, index) in this.data', :key='index', @click='charLook(item,index)')
-					div.al_photo
-						img.al_img(src="../../assets/images/bg.jpg")
-					div.al_cont
-						div.al_title {{item.item_title}}
-						div.al_desc
-							img.al_tx(v-lazy='item.item_photo')
-							p.al_name {{item.item_name}}
-							p.al_time 发布时间:{{item.item_time}}
-						div.al_text
-							p {{item.item_cont}}
+			//- div.al_ul
+			//- 	div.al_li(v-for='(item, index) in this.data', :key='index', @click='charLook(item,index)')
+			//- 		div.al_photo
+			//- 			img.al_img(src="../../assets/images/bg.jpg")
+			//- 		div.al_cont
+			//- 			div.al_title {{item.item_title}}
+			//- 			div.al_desc
+			//- 				img.al_tx(v-lazy='item.item_photo')
+			//- 				p.al_name {{item.item_name}}
+			//- 				p.al_time 发布时间:{{item.item_time}}
+			//- 			div.al_text
+			//- 				p {{item.item_cont}}
 		//- div.al_right
 		//- 	Calendar.al_rl
 			//- (v-on:choseDay="clickDay",	选中某天

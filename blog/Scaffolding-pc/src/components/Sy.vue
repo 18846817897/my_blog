@@ -5,6 +5,7 @@
         img.J_img(v-lazy="moduleinfo.item_pic", @mouseout='xzpic', ref='pic')
       p.J_txt {{moduleinfo.item_txt}}
       p.J_desc {{moduleinfo.item_desc}}
+    aplayer(autoplay :music="music", class='J_music')
     ul.J_header
       router-link.J_header_cont(tag="li", :to='item.path' ,v-for='(item, key, index) in moduleinfo.items', :key='item.id', :data-id='item.id' ref='li') {{item.item_cont}}
       el-tooltip(content="1179273569" placement="top")
@@ -14,6 +15,7 @@
     router-view
 </template>
 <script>
+import Aplayer from 'vue-aplayer'
 export default {
   name: 'sy',
   data () {
@@ -29,7 +31,13 @@ export default {
           {'item_cont': '首页','id': '4', 'path': '/'},
         ]
       },
-      
+       music: {
+        'title': 'Preparation',
+        'author': 'Hans Zimmer/Richard Harvey',
+        'url': '../../static/Taylor_Swif.mp3',
+        'pic': 'https://img.alicdn.com/tfs/TB1GMRZmxnaK1RjSZFtXXbC2VXa-640-640.jpg',
+        'lrc': '[00:00.00]lrc here\n[00:01.00]aplayer'
+      },
     }
   },
   created () {
@@ -42,6 +50,9 @@ export default {
       this.$refs.pic.style.transition=`All 1s ease-in-out`
       this.$refs.pic.style.transform=`rotate(-360deg)`
     }
+  },
+  components: {
+    Aplayer
   }
 }
 </script>
@@ -61,10 +72,10 @@ export default {
   .J_box{
     margin: 0 auto;
     overflow: hidden;
-    background: black;
-    // background: url('../assets/images/12944595.jpeg') top center no-repeat;
+    // background: black;
+    background: url('http://www.ruanyifeng.com/images_pub/pub_69.jpg') top center no-repeat;
     // background: url('http://www.yoyibk.top/content/uploadfile/tpl_options//bgimage.jpg') top center no-repeat;
-    // background-size: cover;
+    background-size: cover;
     position: relative;
     font-family: font;
     cursor: pointer;
