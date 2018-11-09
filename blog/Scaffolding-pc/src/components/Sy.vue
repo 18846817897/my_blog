@@ -43,6 +43,10 @@ export default {
   created () {
   },
   mounted () {
+    setTimeout(()=>{
+      document.querySelector('.J_music').transition='all 20s';
+      document.querySelector('.J_music').transform=`rotate(3600deg) !important`
+    },1000)
     // this.$refs.li[0].$el.classList.add('cursor')  //导航栏默认字体样式
   },
   methods: {
@@ -73,7 +77,7 @@ export default {
     margin: 0 auto;
     overflow: hidden;
     // background: black;
-    background: url('http://www.ruanyifeng.com/images_pub/pub_69.jpg') top center no-repeat;
+    background: url('http://www.ruanyifeng.com/images_pub/pub_57.jpg') top center no-repeat;
     // background: url('http://www.yoyibk.top/content/uploadfile/tpl_options//bgimage.jpg') top center no-repeat;
     background-size: cover;
     position: relative;
@@ -137,8 +141,15 @@ export default {
         }
       }
     }
+    .J_music{
+      width: 70px;
+      height: 70px;
+      overflow: hidden;
+      border-radius: 50%;
+    }
     .J_header{
-      width: 1200px;
+      width: 100%;
+      min-width: 850px;
       height: 50px;
       overflow: hidden;
       margin: 0 auto;

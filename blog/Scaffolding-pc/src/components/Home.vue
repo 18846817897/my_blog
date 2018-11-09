@@ -12,7 +12,7 @@
     aplayer(autoplay :music="music", class='J_music')
       div.J_back
     //- img.al_fh(src='../assets/images/fh.png')
-    img.al_music(src='../assets/images/timg.jpg', v-show='status', ref='music', @mouseover='moveMusic')
+    img.al_music(src='../assets/images/timg.jpg', v-show='status', ref='music')
 </template>
 <script>
 import Aplayer from 'vue-aplayer'
@@ -44,19 +44,8 @@ export default {
     go_grow () {
       this.$router.replace('/sy')
     },
-    moveMusic () {
-      this.status = !this.status
-      document.querySelector('.aplayer').style.transform = `translate(0,0)`
-    },
   },
   mounted () {
-    setTimeout(()=>{
-      document.querySelector('.aplayer').style.transform = `translate(336px,0)`
-      setTimeout(()=>{
-        this.status = !this.status
-      },800)
-    },2000)
-
     fetch('http://127.0.0.1:3001/home',{
         credentials:'include'
     }).then(
@@ -184,6 +173,10 @@ export default {
     }
     .J_music{
       position: relative;
+      width: 70px;
+      height: 70px;
+      overflow: hidden;
+      border-radius: 50%;
       .J_back{
         position: absolute;
         width: 3px;
