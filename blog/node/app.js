@@ -39,7 +39,7 @@ app.use(cors({
     let db = mysql.createConnection({
     host:'localhost',//默认主机名localhost
     user:'root',
-    password:'root',
+    password:'34a9d3eb3e',
     port:3306,
     database:'along'//需要打开的库名
     });
