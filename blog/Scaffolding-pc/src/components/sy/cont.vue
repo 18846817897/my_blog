@@ -48,7 +48,7 @@ export default {
 	},
 	methods: {
 		charLook (data, index) {
-			console.log(data, index);
+			// console.log(data, index);
 		}
 	},
 	components: {
