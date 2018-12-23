@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //配置cors中间件
 app.use(cors({
-    "origin": ["http://localhost:3000", "http://localhost:5000", "http://localhost:8080"], //允许所有前端域名
+    "origin": ["http://localhost:3000", "http://localhost:5000", "http://localhost:8080", "http://localhost:8081"], //允许所有前端域名
     "credentials": true, //允许携带凭证
     "methods": "GET,HEAD,PUT,PATCH,POST,DELETE", //被允许的提交方式
     "allowedHeaders": ['Content-Type', 'Authorization'] //被允许的post方式的请求头
@@ -39,7 +39,7 @@ app.use(cors({
     let db = mysql.createConnection({
     host:'localhost',//默认主机名localhost
     user:'root',
-    password:'34a9d3eb3e',
+    password:'root',
     port:3306,
     database:'along'//需要打开的库名
     });

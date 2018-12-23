@@ -148,7 +148,8 @@ export default {
       border-radius: 50%;
     }
     .J_header{
-      width: 100%;
+      // width: 100%;
+      width: 1200px;
       min-width: 850px;
       height: 50px;
       overflow: hidden;

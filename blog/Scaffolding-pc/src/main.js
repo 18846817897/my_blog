@@ -56,6 +56,11 @@ Vue.filter('size', (value) => {
   return a
 })
 
+Vue.filter('Intercept', (value) => {
+  let a = value.slice(0,120)+ '...';
+  return a;
+})
+
 // 全局注册组件
 Vue.component('my-component', {
   template: '<div>along</div>'
