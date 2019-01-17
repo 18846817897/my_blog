@@ -8,11 +8,9 @@
       p.skill {{moduleinfo.item_skill}}
       p.photo {{moduleinfo.item_photo}}
       p.message {{moduleinfo.item_message}}
-      a(href='http://yangwenlong.sxl.cn', class='al_link') {{moduleinfo.item_link}}
+      p.al_link  {{moduleinfo.item_more}}
     aplayer(autoplay :music="music", class='J_music')
       div.J_back
-    //- img.al_fh(src='../assets/images/fh.png')
-    img.al_music(src='../assets/images/timg.jpg', v-show='status', ref='music')
 </template>
 <script>
 import Aplayer from 'vue-aplayer'
@@ -27,14 +25,20 @@ export default {
         'item_skill': '>>我的博文 (Post)',
         'item_photo': '>>我的相册 (Photo)',
         'item_message': '>>给我留言 (Leave a message)',
-        'item_link': 'http://yangwenlong.sxl.cn'
+        'item_more': '>>我的社区网站 (My Community Website)'
       },
       music: {
         'title': 'Preparation',
         'author': 'Hans Zimmer/Richard Harvey',
-        'url': '../../static/Taylor_Swif.mp3',
+        'url': 'https://gw.alicdn.com/bao/uploaded/LB1qyFLhyrpK1RjSZFhXXXSdXXa.mp3?spm=a1z3i.a4.0.0.7d68eb1da923Ii&file=LB1qyFLhyrpK1RjSZFhXXXSdXXa.mp3',
         'pic': 'https://img.alicdn.com/tfs/TB1GMRZmxnaK1RjSZFtXXbC2VXa-640-640.jpg',
         'lrc': '[00:00.00]lrc here\n[00:01.00]aplayer'
+      },
+      url:{
+        "blog": "http://yangwenlong.sxl.cn",
+        "blogs": "www.along.ink",
+        "git_hub": "https://github.com/YangWenLong123",
+        "boke": "https://home.cnblogs.com/u/alongup/"
       },
       clientHeight:'',
       status: false
@@ -42,7 +46,7 @@ export default {
   },
   methods: {
     go_grow () {
-      this.$router.replace('/sy')
+      this.$router.replace('/sy');
     },
   },
   mounted () {
@@ -65,6 +69,7 @@ export default {
     src: url("../assets/fonts/AaPrincessPeach.ttf")format("truetype");
   }
   @b: #fff;
+  @lg: 75rem;
   .al_box{
     width: 100%;
     height: 100%;
@@ -84,7 +89,7 @@ export default {
       bottom: 0;
       margin: auto;
       width: 600px;
-      height: 400px;
+      height: 450px;
       border-radius: 10px;
       overflow: hidden;
       background: rgba(0, 0, 0, .3);
@@ -145,7 +150,7 @@ export default {
           color: salmon;
         }
       }
-      .skill,.photo,.message{
+      .skill,.photo,.message,.al_link{
         width: 90%;
         height: 40px;
         overflow: hidden;
@@ -157,15 +162,9 @@ export default {
         line-height: 40px;
         font-size: 20px;
         text-indent: 10px;
-        &:hover{
-          color: salmon;
-        }
-      }
-      .al_link{
-        color: @b;
-        margin-left: 392px;
-        display: inline-block;
-        margin-top: 5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
         &:hover{
           color: salmon;
         }
@@ -196,6 +195,12 @@ export default {
       right: 26px;
       top: 22px;
       transition: all 60s;
+    }
+    @media (max-width: 750px){
+      .al_cont{
+        width: 750/@lg;
+        // height: 11rem;
+      }
     }
   }
 </style>

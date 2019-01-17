@@ -1,13 +1,16 @@
 <template lang="pug">
 	div.al_box
 		div.J_left
-			ul.J_ul(v-for='(item,index) in data')
+			ul.J_ul(v-for='(item,index) in data', @click='look_Article(index)', ref='J_ul', v-show='ifStatus')
 				li.J_li
 					p.J_times
 						span.J_time {{item.item_time}}
 						span.J_title {{item.item_title}}
 					p.J_cont {{item.iten_cont | Intercept}}
 					p.J_desc {{item.iten_desc}} 阅读({{item.item_num}}) 评论({{item.item_pl}})
+			div.J_Article(v-show='ifShow')
+				div.J_title {{this.moduleinfo.item_title}}
+				div.J_cont {{this.moduleinfo.item_cont}}
 		div.J_right
 			Calendar
 			//- (v-on:choseDay="clickDay",	选中某天
@@ -25,7 +28,11 @@ export default {
 	name: 'cont',
 	data () {
 		return {
+			ifShow: false,
+			ifStatus: true,
 			moduleinfo:{
+				'item_cont': '',
+				'item_title': ''
 			},
 			data: [
 				{
@@ -35,7 +42,7 @@ export default {
 					'iten_desc': '@posted @ 2018/11/10 18:28 阿龙丶along ',
 					'item_num': '0',
 					'item_pl': '0',
-					'id': '1'
+					'id': '0'
 				},
 				{
 					'item_time': '2018年7月17日',
@@ -44,7 +51,7 @@ export default {
 					'iten_desc': '@posted @ 2018/11/10 18:28 阿龙丶along ',
 					'item_num': '0',
 					'item_pl': '0',
-					'id': '2'
+					'id': '1'
 				}
 			]
 		}	
@@ -52,6 +59,13 @@ export default {
 	methods: {
 		charLook (data, index) {
 			// console.log(data, index);
+		},
+		look_Article (index) {
+			this.ifShow = !this.ifShow;
+			this.ifStatus = !this.ifStatus;
+			// console.log(this.data[index], index)
+			this.moduleinfo.item_cont = this.data[index].iten_cont;
+			this.moduleinfo.item_title = this.data[index].item_title;
 		}
 	},
 	components: {
@@ -61,6 +75,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+	@b: #ffffff;
 	.al_box{
 		width: 1200px;
 		height: auto;
@@ -132,6 +147,24 @@ export default {
 						margin-left: 20px;
 						margin-top: 15px;
 					}
+				}
+			}
+			.J_Article{
+				width: 890px;
+				height: auto;
+				overflow: hidden;
+				border: 1px red solid;
+				color: @b;
+				box-sizing: border-box;
+				.J_title{
+					font-size: 24px;
+				}
+				.J_cont{
+					width: 870px;
+					height: auto;
+					font-size: 18px;
+					text-indent: 20px;
+					margin-top: 10px;
 				}
 			}
 			// .J_ul:not(:first-child){
