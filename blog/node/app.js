@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cookieSession({
-    keys: ['aa', 'bb'],
+    keys: ['aa', 'bb'],   
     name: 'abc_id',
 }));
 app.use(express.static(path.join(__dirname, 'public')));

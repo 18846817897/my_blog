@@ -34,7 +34,7 @@ export default {
        music: {
         'title': 'Preparation',
         'author': 'Hans Zimmer/Richard Harvey',
-        'url': '../../static/Taylor_Swif.mp3',
+        'url': 'http://www.170mv.com/kw/other.web.rh01.sycdn.kuwo.cn/resource/n1/80/47/3975059790.mp3',
         'pic': 'https://img.alicdn.com/tfs/TB1GMRZmxnaK1RjSZFtXXbC2VXa-640-640.jpg',
         'lrc': '[00:00.00]lrc here\n[00:01.00]aplayer'
       },

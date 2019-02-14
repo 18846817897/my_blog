@@ -57,7 +57,7 @@ Vue.filter('size', (value) => {
 })
 
 Vue.filter('Intercept', (value) => {
-  let a = value.slice(0,120)+ '...';
+  let a = value.slice(0,180)+ '...';
   return a;
 })
 

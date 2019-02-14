@@ -30,7 +30,7 @@ export default {
       music: {
         'title': 'Preparation',
         'author': 'Hans Zimmer/Richard Harvey',
-        'url': 'https://gw.alicdn.com/bao/uploaded/LB1qyFLhyrpK1RjSZFhXXXSdXXa.mp3?spm=a1z3i.a4.0.0.7d68eb1da923Ii&file=LB1qyFLhyrpK1RjSZFhXXXSdXXa.mp3',
+        'url': 'http://www.170mv.com/kw/other.web.rh01.sycdn.kuwo.cn/resource/n1/80/47/3975059790.mp3',
         'pic': 'https://img.alicdn.com/tfs/TB1GMRZmxnaK1RjSZFtXXbC2VXa-640-640.jpg',
         'lrc': '[00:00.00]lrc here\n[00:01.00]aplayer'
       },
@@ -57,7 +57,7 @@ export default {
     ).then(
       data=>console.log(data,'data')
     )
-  },
+   },
   components: {
     Aplayer
   }
@@ -81,6 +81,8 @@ export default {
     font-family: font;
     position: relative;
     cursor: pointer;
+    box-sizing: border-box;
+    // border: 1px red solid;
     .al_cont{
       position: absolute;
       left: 0;
