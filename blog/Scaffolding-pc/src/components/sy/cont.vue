@@ -597,9 +597,9 @@ export default {
 				// border: 1px @b solid;
 				border-radius: 10px;
 				margin-top: 20px;
-				display: flex;
-				flex-wrap: wrap;
-				justify-items: center;
+				// display: flex;
+				// flex-wrap: wrap;
+				// justify-items: center;
 				.J_ponsor_tit{
 					width: 100%;
 					height: 24px;
