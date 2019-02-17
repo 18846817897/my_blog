@@ -1,18 +1,20 @@
 <template lang="pug">
-  div.J_box
-    div.J_title
-      p.J_photo
-        img.J_img(v-lazy="moduleinfo.item_pic", @mouseout='xzpic', ref='pic')
-      p.J_txt {{moduleinfo.item_txt}}
-      p.J_desc {{moduleinfo.item_desc}}
-    aplayer(autoplay :music="music", class='J_music')
-    ul.J_header
-      router-link.J_header_cont(tag="li", :to='item.path' ,v-for='(item, key, index) in moduleinfo.items', :key='item.id', :data-id='item.id' ref='li') {{item.item_cont}}
-      el-tooltip(content="1179273569" placement="top")
-        el-button QQ
-      el-tooltip(content="along17375354556" placement="top", class='j_wx')
-        el-button 微信
-    router-view
+  div.J_wrap
+    div.J_box(v-show='ifShow')
+      div.J_title
+        p.J_photo
+          img.J_img(v-lazy="moduleinfo.item_pic", @mouseout='xzpic', ref='pic')
+        p.J_txt {{moduleinfo.item_txt}}
+        p.J_desc {{moduleinfo.item_desc}}
+      aplayer(autoplay :music="music", class='J_music')
+      ul.J_header
+        router-link.J_header_cont(tag="li", :to='item.path' ,v-for='(item, key, index) in moduleinfo.items', :key='item.id', :data-id='item.id' ref='li') {{item.item_cont}}
+        el-tooltip(content="1179273569" placement="top")
+          el-button QQ
+        el-tooltip(content="along17375354556" placement="top", class='j_wx')
+          el-button 微信
+      router-view
+    div.J_box_m
 </template>
 <script>
 import Aplayer from 'vue-aplayer'
@@ -20,6 +22,7 @@ export default {
   name: 'sy',
   data () {
     return {
+      ifShow: true,
       moduleinfo: {
         'item_pic': 'https://img.alicdn.com/tfs/TB1GMRZmxnaK1RjSZFtXXbC2VXa-640-640.jpg',
         'item_txt': '随行笔记,分享生活，分享技术',
@@ -45,7 +48,14 @@ export default {
   mounted () {
     setTimeout(()=>{
       document.querySelector('.J_music').transition='all 20s';
-      document.querySelector('.J_music').transform=`rotate(3600deg) !important`
+      document.querySelector('.J_music').transform=`rotate(3600deg) !important`;
+      // window.onload = window.onresize = ()=>{
+      //   let width = document.body.clientWidth || window.screen.width;
+      //   console.log(width,'width');
+      //   if(width <= 750){
+      //     document.querySelector('.J_box')[0].style.display = 'none';
+      //   }
+      // }
     },1000)
     // this.$refs.li[0].$el.classList.add('cursor')  //导航栏默认字体样式
   },
@@ -53,7 +63,7 @@ export default {
     xzpic () {  //头像旋转
       this.$refs.pic.style.transition=`All 1s ease-in-out`
       this.$refs.pic.style.transform=`rotate(-360deg)`
-    }
+    },
   },
   components: {
     Aplayer
