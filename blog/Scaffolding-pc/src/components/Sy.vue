@@ -1,6 +1,6 @@
 <template lang="pug">
   div.J_wrap
-    div.J_box(v-show='ifShow')
+    div.J_box(v-show='ifShow',ref='J_box')
       div.J_title
         p.J_photo
           img.J_img(v-lazy="moduleinfo.item_pic", @mouseout='xzpic', ref='pic')
@@ -14,7 +14,7 @@
         el-tooltip(content="along17375354556" placement="top", class='j_wx')
           el-button 微信
       router-view
-    div.J_box_m
+    div.J_box_m(ref='J_phone') 111
 </template>
 <script>
 import Aplayer from 'vue-aplayer'
@@ -49,14 +49,8 @@ export default {
     setTimeout(()=>{
       document.querySelector('.J_music').transition='all 20s';
       document.querySelector('.J_music').transform=`rotate(3600deg) !important`;
-      // window.onload = window.onresize = ()=>{
-      //   let width = document.body.clientWidth || window.screen.width;
-      //   console.log(width,'width');
-      //   if(width <= 750){
-      //     document.querySelector('.J_box')[0].style.display = 'none';
-      //   }
-      // }
     },1000)
+    this.phone();
     // this.$refs.li[0].$el.classList.add('cursor')  //导航栏默认字体样式
   },
   methods: {
@@ -64,6 +58,27 @@ export default {
       this.$refs.pic.style.transition=`All 1s ease-in-out`
       this.$refs.pic.style.transform=`rotate(-360deg)`
     },
+    phone () {
+      window.onload = window.onresize = ()=>{
+        let width = document.body.clientWidth || window.screen.width;
+        // console.log(width,'width');
+        if(width <= 750){
+          this.$refs.J_box.style.display = 'none';
+          this.$refs.J_phone.style.display = 'block';
+          // this.$nextTick(()=> {
+          //   setTimeout(()=> {
+          //   let el = document.querySelector('.J_box')[0];
+          //     if(el) {
+          //       console.log(el,'dom');
+          //     }
+          //   })
+          // })
+        }else{
+          this.$refs.J_box.style.display = 'block';
+          this.$refs.J_phone.style.display = 'none';
+        }
+      }
+    }
   },
   components: {
     Aplayer
@@ -82,6 +97,10 @@ export default {
   }
   .cursor{
     color: salmon !important;
+  }
+  .J_wrap{
+    width: 100%;
+    height: auto;
   }
   .J_box{
     margin: 0 auto;
@@ -194,6 +213,16 @@ export default {
       color: 'salmon';
       font-weight: bold;
     }
+  }
+  // 移动
+  @lg: 75rem;
+  .J_box_m{
+    width: 750/@lg;
+    height: 500/@lg;
+    overflow: hidden;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border: 1px red solid;
   }
 </style>
 
