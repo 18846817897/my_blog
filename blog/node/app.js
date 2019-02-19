@@ -43,6 +43,7 @@ app.use(cors({
     port:3306,
     database:'along'//需要打开的库名
     });
+    
 //连接数据库
     db.connect();
 
