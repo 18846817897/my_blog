@@ -139,11 +139,11 @@ export default {
 			],
 			videolist: [
 				{"url": "http://www.along.ink/video/video_009.mp4"},                                   
-				{"url": "http://www.along.ink/video/video_009.mp4"},
-				{"url": "http://www.along.ink/video/video_009.mp4"},
-				{"url": "http://www.along.ink/video/video_010.mp4"},
-				{"url": "http://www.along.ink/video/video_010.mp4"},
-				{"url": "http://www.along.ink/video/video_010.mp4"}
+				{"url": ""},
+				{"url": ""},
+				{"url": ""},
+				{"url": ""},
+				{"url": ""}
 			],
 			read: [
 				{'title': '前端性能优化', 'id': '1', 'link':'https://www.cnblogs.com/alongup/p/9081988.html'},

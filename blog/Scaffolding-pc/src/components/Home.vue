@@ -9,7 +9,7 @@
       p.photo {{moduleinfo.item_photo}}
       p.message {{moduleinfo.item_message}}
       p.al_link  {{moduleinfo.item_more}}
-    aplayer(autoplay :music="music", class='J_music')
+    aplayer(:music="music", class='J_music')
       div.J_back
 </template>
 <script>

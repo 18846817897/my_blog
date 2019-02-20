@@ -6,7 +6,7 @@
           img.J_img(v-lazy="moduleinfo.item_pic", @mouseout='xzpic', ref='pic')
         p.J_txt {{moduleinfo.item_txt}}
         p.J_desc {{moduleinfo.item_desc}}
-      aplayer(autoplay :music="music", class='J_music')
+      aplayer(:music="music", class='J_music')
       ul.J_header
         router-link.J_header_cont(tag="li", :to='item.path' ,v-for='(item, key, index) in moduleinfo.items', :key='item.id', :data-id='item.id' ref='li') {{item.item_cont}}
         el-tooltip(content="1179273569" placement="top")
@@ -15,7 +15,8 @@
           el-button 微信
       router-view
     div.J_box_m(ref='J_phone')
-      aplayer(autoplay :music="music", class='J_music')
+      loading.al_loading(ref='loading',v-show='isLoading')
+      aplayer(:music="music", class='J_music')
       div.J_header along丶
       div.J_header2 Dont't give up to easily.
       lunbo
@@ -23,11 +24,13 @@
 <script>
 import Aplayer from 'vue-aplayer'
 import lunbo from './public/lunbo.vue'
+import loading from './public/loading.vue'
 export default {
   name: 'sy',
   data () {
     return {
       ifShow: true,
+      isLoading: true,
       moduleinfo: {
         'item_pic': 'https://img.alicdn.com/tfs/TB1GMRZmxnaK1RjSZFtXXbC2VXa-640-640.jpg',
         'item_txt': '随行笔记,分享生活，分享技术',
@@ -40,7 +43,7 @@ export default {
         ]
       },
        music: {
-        'title': 'Preparation',
+         'title': 'Preparation',
         'author': 'Hans Zimmer/Richard Harvey',
         'url': 'http://www.170mv.com/kw/other.web.rh01.sycdn.kuwo.cn/resource/n1/80/47/3975059790.mp3',
         'pic': 'https://img.alicdn.com/tfs/TB1GMRZmxnaK1RjSZFtXXbC2VXa-640-640.jpg',
@@ -50,22 +53,23 @@ export default {
   },
   created () {
     
-  },
+    },
   mounted () {
-    window.onload = window.onresize = ()=>{
+    setTimeout(()=>{
+      this.isLoading = !this.isLoading;
+    },2000)
+    setTimeout(()=>{
+      window.onload = window.onresize = () => {
         let width = document.body.clientWidth || window.screen.width;
         if(width <= 750){
-            this.$refs.J_box.style.display = 'none';
+          this.$refs.J_box.style.display = 'none';
             this.$refs.J_phone.style.display = 'block';
         }else{
           this.$refs.J_box.style.display = 'block';
-          this.$refs.J_phone.style.display = 'none';
+            this.$refs.J_phone.style.display = 'none';
         }
       }
-    setTimeout(()=>{
-      document.querySelector('.J_music').transition='all 20s';
-      document.querySelector('.J_music').transform=`rotate(3600deg) !important`;
-    },1000)
+    },0)
     // this.$refs.li[0].$el.classList.add('cursor')  //导航栏默认字体样式
   },
   methods: {
@@ -75,7 +79,7 @@ export default {
     },
   },
   components: {
-    Aplayer,lunbo
+    Aplayer,lunbo,loading
   }
 }
 </script>
