@@ -59,7 +59,7 @@ export default {
       this.isLoading = !this.isLoading;
     },2000)
     setTimeout(()=>{
-      window.onload = window.onresize = () => {
+      // window.onload = window.onresize = () => {
         let width = document.body.clientWidth || window.screen.width;
         if(width <= 750){
           this.$refs.J_box.style.display = 'none';
@@ -68,7 +68,7 @@ export default {
           this.$refs.J_box.style.display = 'block';
             this.$refs.J_phone.style.display = 'none';
         }
-      }
+      // }
     },0)
     // this.$refs.li[0].$el.classList.add('cursor')  //导航栏默认字体样式
   },
