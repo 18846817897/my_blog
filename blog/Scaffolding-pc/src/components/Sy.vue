@@ -6,7 +6,7 @@
           img.J_img(v-lazy="moduleinfo.item_pic", @mouseout='xzpic', ref='pic')
         p.J_txt {{moduleinfo.item_txt}}
         p.J_desc {{moduleinfo.item_desc}}
-      aplayer(:music="music", class='J_music')
+      //- aplayer(:music="music", class='J_music')
       ul.J_header
         router-link.J_header_cont(tag="li", :to='item.path' ,v-for='(item, key, index) in moduleinfo.items', :key='item.id', :data-id='item.id' ref='li') {{item.item_cont}}
         el-tooltip(content="1179273569" placement="top")
@@ -14,12 +14,12 @@
         el-tooltip(content="along17375354556" placement="top", class='j_wx')
           el-button 微信
       router-view
-    div.J_box_m(ref='J_phone')
-      loading.al_loading(ref='loading',v-show='isLoading')
-      aplayer(:music="music", class='J_music')
-      div.J_header along丶
-      div.J_header2 Dont't give up to easily.
-      lunbo
+    //- div.J_box_m(ref='J_phone')
+    //-   loading.al_loading(ref='loading',v-show='isLoading')
+    //-   aplayer(:music="music", class='J_music')
+    //-   div.J_header along丶
+    //-   div.J_header2 Dont't give up to easily.
+    //-   lunbo
 </template>
 <script>
 import Aplayer from 'vue-aplayer'
@@ -58,19 +58,16 @@ export default {
     setTimeout(()=>{
       this.isLoading = !this.isLoading;
     },2000)
-    setTimeout(()=>{
-      // window.onload = window.onresize = () => {
-        let width = document.body.clientWidth || window.screen.width;
-        if(width <= 750){
-          this.$refs.J_box.style.display = 'none';
-            this.$refs.J_phone.style.display = 'block';
-        }else{
-          this.$refs.J_box.style.display = 'block';
-            this.$refs.J_phone.style.display = 'none';
-        }
-      // }
-    },0)
-    // this.$refs.li[0].$el.classList.add('cursor')  //导航栏默认字体样式
+    // setTimeout(()=>{
+    //     let width = document.body.clientWidth || window.screen.width;
+    //     if(width <= 750){
+    //       this.$refs.J_box.style.display = 'none';
+    //         this.$refs.J_phone.style.display = 'block';
+    //     }else{
+    //       this.$refs.J_box.style.display = 'block';
+    //         this.$refs.J_phone.style.display = 'none';
+    //     }
+    // },0)
   },
   methods: {
     xzpic () {  //头像旋转

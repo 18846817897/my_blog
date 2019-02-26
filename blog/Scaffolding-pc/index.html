@@ -22,7 +22,7 @@
         min-height: 100%;
         height: 100%;
       }
-      .snow-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:100001;}
+      /* .snow-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:100001;} */
     </style>
   </head>
   <body>
@@ -30,53 +30,45 @@
     <div class="snow-container"></div>
   </body>
   <script>
-  b = document.getElementsByTagName("html")[0];
-  (function flexible (window, document) {
-  var docEl = document.documentElement
-  var dpr = window.devicePixelRatio || 1
+  // b = document.getElementsByTagName("html")[0];
+  // (function flexible (window, document) {
+  // var docEl = document.documentElement
+  // var dpr = window.devicePixelRatio || 1
+  // function setBodyFontSize () {
+  //   if (document.body) {
+  //     document.body.style.fontSize = (12 * dpr) + 'px'
+  //   }
+  //   else {
+  //     document.addEventListener('DOMContentLoaded', setBodyFontSize)
+  //   }
+  // }
+  // setBodyFontSize();
+  // function setRemUnit () {
+  //   var rem = docEl.clientWidth / 10
+  //   docEl.style.fontSize = rem + 'px'
+  // }
+  // setRemUnit()
+  // window.addEventListener('resize', setRemUnit)
+  // window.addEventListener('pageshow', function (e) {
+  //   if (e.persisted) {
+  //     setRemUnit()
+  //   }
+  // })
 
-  // adjust body font size
-  function setBodyFontSize () {
-    if (document.body) {
-      document.body.style.fontSize = (12 * dpr) + 'px'
-    }
-    else {
-      document.addEventListener('DOMContentLoaded', setBodyFontSize)
-    }
-  }
-  setBodyFontSize();
-
-  // set 1rem = viewWidth / 10
-  function setRemUnit () {
-    var rem = docEl.clientWidth / 10
-    docEl.style.fontSize = rem + 'px'
-  }
-
-  setRemUnit()
-
-  // reset rem unit on page resize
-  window.addEventListener('resize', setRemUnit)
-  window.addEventListener('pageshow', function (e) {
-    if (e.persisted) {
-      setRemUnit()
-    }
-  })
-
-  // detect 0.5px supports
-  if (dpr >= 2) {
-    var fakeBody = document.createElement('body')
-    var testElement = document.createElement('div')
-    testElement.style.border = '.5px solid transparent'
-    fakeBody.appendChild(testElement)
-    docEl.appendChild(fakeBody)
-    if (testElement.offsetHeight === 1) {
-      docEl.classList.add('hairlines')
-    }
-    docEl.removeChild(fakeBody)
-  }
-}(window, document))
+//   if (dpr >= 2) {
+//     var fakeBody = document.createElement('body')
+//     var testElement = document.createElement('div')
+//     testElement.style.border = '.5px solid transparent'
+//     fakeBody.appendChild(testElement)
+//     docEl.appendChild(fakeBody)
+//     if (testElement.offsetHeight === 1) {
+//       docEl.classList.add('hairlines')
+//     }
+//     docEl.removeChild(fakeBody)
+//   }
+// }(window, document))
   </script>
-  <script src="https://lib.baomitu.com/jquery/1.4.2/jquery.js"></script>
-  <script src="https://gw.alicdn.com/bao/uploaded/TB1BEauxXYqK1RjSZLeXXbXppXa.js?spm=a1z3i.a4.0.0.6ebaeb1dTja0fv&file=TB1BEauxXYqK1RjSZLeXXbXppXa.js"></script>
-  <script src="https://gw.alicdn.com/bao/uploaded/TB1CH5DyXzqK1RjSZFoXXbfcXXa.js?spm=a1z3i.a4.0.0.6ebaeb1dAwnmVh&file=TB1CH5DyXzqK1RjSZFoXXbfcXXa.js"></script>
+  <!-- <script src="https://lib.baomitu.com/jquery/1.4.2/jquery.js"></script> -->
+  <!-- <script src="https://gw.alicdn.com/bao/uploaded/TB1BEauxXYqK1RjSZLeXXbXppXa.js?spm=a1z3i.a4.0.0.6ebaeb1dTja0fv&file=TB1BEauxXYqK1RjSZLeXXbXppXa.js"></script> -->
+  <!-- <script src="https://gw.alicdn.com/bao/uploaded/TB1CH5DyXzqK1RjSZFoXXbfcXXa.js?spm=a1z3i.a4.0.0.6ebaeb1dAwnmVh&file=TB1CH5DyXzqK1RjSZFoXXbfcXXa.js"></script> -->
 </html>

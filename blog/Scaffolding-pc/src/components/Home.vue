@@ -30,15 +30,15 @@ export default {
       music: {
         'title': 'Preparation',
         'author': 'Hans Zimmer/Richard Harvey',
-        'url': 'http://www.170mv.com/kw/other.web.rh01.sycdn.kuwo.cn/resource/n1/80/47/3975059790.mp3',
-        'pic': 'https://img.alicdn.com/tfs/TB1GMRZmxnaK1RjSZFtXXbC2VXa-640-640.jpg',
+        'url': '//www.170mv.com/kw/other.web.rh01.sycdn.kuwo.cn/resource/n1/80/47/3975059790.mp3',
+        'pic': '//img.alicdn.com/tfs/TB1GMRZmxnaK1RjSZFtXXbC2VXa-640-640.jpg',
         'lrc': '[00:00.00]lrc here\n[00:01.00]aplayer'
       },
       url:{
-        "blog": "http://yangwenlong.sxl.cn",
+        "blog": "//yangwenlong.sxl.cn",
         "blogs": "www.along.ink",
-        "git_hub": "https://github.com/YangWenLong123",
-        "boke": "https://home.cnblogs.com/u/alongup/"
+        "git_hub": "//github.com/YangWenLong123",
+        "boke": "//home.cnblogs.com/u/alongup/"
       },
       clientHeight:'',
       status: false
@@ -50,13 +50,13 @@ export default {
     },
   },
   mounted () {
-    fetch('http://127.0.0.1:3001/home',{
-        credentials:'include'
-    }).then(
-      res=>res.json()
-    ).then(
-      data=>console.log(data,'data')
-    )
+    // fetch('http://127.0.0.1:3001/home',{
+    //     credentials:'include'
+    // }).then(
+    //   res=>res.json()
+    // ).then(
+    //   data=>console.log(data,'data')
+    // )
    },
   components: {
     Aplayer

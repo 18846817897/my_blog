@@ -19,9 +19,9 @@
 					div.J_title {{this.moduleinfo.item_title}}
 					//- div.J_cont {{this.moduleinfo.item_cont}}
 					div.J_conts(ref='J_cont')
-				div.J_video
-					div.J_video_cont(v-for='(item, index) in videolist')
-						<video :src='item.url' loop controls="controls" poster='http://www.along.ink/img/012.jpg' class='J_vs'></video>
+				//- div.J_video
+				//- 	div.J_video_cont(v-for='(item, index) in videolist')
+				//- 		<video :src='item.url' loop controls="controls" poster='http://www.along.ink/img/012.jpg' class='J_vs'></video>
 			div.J_right
 				Calendar
 				div.J_brief
@@ -389,7 +389,7 @@ export default {
 							height: 32px;
 							overflow: hidden;
 							display: block;
-							margin-top: 20px;
+							margin-top: 10px;
 							.J_time{
 								width: 100px;
 								height: 32px;
@@ -421,7 +421,7 @@ export default {
 							margin: 0 auto;
 							// border: 1px red solid;
 							box-sizing: border-box;
-							line-height: 28px;
+							line-height: 29px;
 							// border: 1px red solid;
 							text-overflow:ellipsis;
 							display:-webkit-box;
@@ -431,7 +431,7 @@ export default {
 						}
 						.J_desc{
 							width: 240px;
-							height: 38px;
+							height: 50px;
 							overflow: hidden;
 							margin: 0 auto;
 							color: @b;
