@@ -9,7 +9,6 @@ export default {
   name: 'foot',
   data () {
     return {
-       
     }
   }
 }
@@ -20,19 +19,16 @@ export default {
   @b: #ffffff;
   .al_foot{
     width: 100%;
-    // height: 300px;
     overflow: hidden;
     margin: 0 auto;
     box-sizing: border-box;
     background: rgba(0,0,0,.8);
-    // border: 1px @b solid;
     .al_box{
       width: 1200px;
       height: auto;
       overflow: hidden;
       margin: 0 auto;
       box-sizing: border-box;
-      // border: 1px @b solid;
       .al_bq{
         width: 100%;
         height: 20px;

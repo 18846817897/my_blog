@@ -39,9 +39,7 @@ export default {
         "blogs": "www.along.ink",
         "git_hub": "//github.com/YangWenLong123",
         "boke": "//home.cnblogs.com/u/alongup/"
-      },
-      clientHeight:'',
-      status: false
+      }
     }
   },
   methods: {
@@ -50,13 +48,6 @@ export default {
     },
   },
   mounted () {
-    // fetch('http://127.0.0.1:3001/home',{
-    //     credentials:'include'
-    // }).then(
-    //   res=>res.json()
-    // ).then(
-    //   data=>console.log(data,'data')
-    // )
    },
   components: {
     Aplayer
@@ -64,10 +55,6 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-  @font-face {
-    font-family: font;
-    src: url("../assets/fonts/AaPrincessPeach.ttf")format("truetype");
-  }
   @b: #fff;
   @lg: 75rem;
   .al_box{
@@ -78,11 +65,9 @@ export default {
     background: url('http://www.ruanyifeng.com/images_pub/pub_355.jpg') top center no-repeat;
     background-size: cover;
     position: relative;
-    font-family: font;
     position: relative;
     cursor: pointer;
     box-sizing: border-box;
-    // border: 1px red solid;
     .al_cont{
       position: absolute;
       left: 0;
@@ -197,12 +182,6 @@ export default {
       right: 26px;
       top: 22px;
       transition: all 60s;
-    }
-    @media (max-width: 750px){
-      .al_cont{
-        width: 750/@lg;
-        // height: 11rem;
-      }
     }
   }
 </style>

@@ -1,11 +1,11 @@
 import Home from './components/Home'
 // import Page from './components/Page'
-const Sy = () => import('./components/Sy')  //按需加载
+const Sy = () => import('./components/HomePage')  //按需加载
 
 // 二级路由
-const Cont  = () => import('./components/sy/cont')
-const Whisp = () => import('./components/sy/Whispering')
-const Brief = () => import('./components/sy/brief')
+const Cont  = () => import('./components/HomePageChildren/cont')
+const Whisp = () => import('./components/HomePageChildren/Whispering')
+const Brief = () => import('./components/HomePageChildren/brief')
 import { resolve } from 'path';
 
 export default [

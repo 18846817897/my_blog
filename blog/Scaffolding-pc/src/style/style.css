@@ -78,3 +78,38 @@
 .wh_container{
   background: gray;
 }
+
+/*微语布局header组件*/
+.el-header{
+  width: 1150px;
+  height: 13%;
+  overflow: hidden;
+  margin: 0 auto;
+  box-sizing: border-box;
+  border: 1px red solid;
+  margin-top: 30px;
+  padding: 0;
+}
+
+/*微语布局main组件*/
+.el-main{
+  width: 1150px;
+  height: 68%;
+  overflow: hidden;
+  margin: 0 auto;
+  margin-top: 30px;
+  box-sizing: border-box;
+  border: 1px red solid;
+  padding: 0;
+}
+/*微语布局foot组件*/
+.el-footer{
+  width: 1150px;
+  height: 13%;
+  overflow: hidden;
+  margin: 0 auto;
+  margin-top: 30px;
+  box-sizing: border-box;
+  border: 1px red solid;
+  padding: 0;
+}

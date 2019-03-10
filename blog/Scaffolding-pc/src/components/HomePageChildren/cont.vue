@@ -13,8 +13,9 @@
 						p.J_times
 							span.J_time {{item.item_time}}
 							span.J_title {{item.item_title}}
-						p.J_cont
-						p.J_desc {{item.iten_desc}} 阅读({{item.item_num}}) 评论({{item.item_pl}})
+						p.J_cont(ref='cont')
+						p.J_desc {{item.iten_desc}} 
+						//- 阅读({{item.item_num}}) 评论({{item.item_pl}})
 				div.J_Article(v-show='ifShow', @mouseleave='prev()')
 					div.J_title {{this.moduleinfo.item_title}}
 					//- div.J_cont {{this.moduleinfo.item_cont}}
@@ -63,12 +64,11 @@
 						span.J_pos_name QQ
 						span.J_pos_name 支付宝
 					img.J_money_pic(src='http://www.along.ink/img/008.jpg',ref='pic')
-		Foot
 </template>
 
 <script>
 import Calendar from 'vue-calendar-component'
-import Foot from '../Foot.vue'
+import axios from 'axios'
 export default {
 	name: 'cont',
 	data () {
@@ -76,67 +76,12 @@ export default {
 			ifShow: false,
 			ifStatus: true,
 			ifWx: false,
+			data: '',
 			moduleinfo:{
 				'item_cont': '',
 				'item_title': '',
 				'item_shar_title': '分享网站'
 			},
-			data: [
-				{
-					'item_time': '2019年2月14日',
-					'item_title': '你可以这样活',
-					'iten_cont': `生活除了苟且，还有诗意和远方，我知道我写不出那些充满诗意的文章，也不具备诗意的风采。我只是除了八小时流水线般的工作，其余时间就在文字与代码的世界里徜徉。因为，除了偶尔到远方走走，其余的我没有多大兴趣。<br/>&nbsp;文如其人，有时候文不如其人，当时的灵感创作了一篇文字，时过境迁，回头再看，那时的心境和这时候截然不同，这就是“时空转换”的概念。<br/>&nbsp;所以有些文字，千万别对号入座，有些文章，没有刻意的悲喜，没有刻意的做作，有的，只是一个被岁月洗礼的心，被时间注入的情，然后用文字留下一些记忆罢了。<br/>&nbsp;不知从什么时候起，`,
-					'iten_desc': '@posted @ 2018/2/14 18:28 阿龙丶along ',
-					'item_num': '0',
-					'item_pl': '0',
-					'id': '0'
-				},
-					{
-					'item_time': '2019年2月14日',
-					'item_title': '你可以这样活',
-					'iten_cont': `生活除了苟且，还有诗意和远方，我知道我写不出那些充满诗意的文章，也不具备诗意的风采。我只是除了八小时流水线般的工作，其余时间就在文字与代码的世界里徜徉。因为，除了偶尔到远方走走，其余的我没有多大兴趣。<br/>&nbsp;文如其人，有时候文不如其人，当时的灵感创作了一篇文字，时过境迁，回头再看，那时的心境和这时候截然不同，这就是“时空转换”的概念。<br/>&nbsp;所以有些文字，千万别对号入座，有些文章，没有刻意的悲喜，没有刻意的做作，有的，只是一个被岁月洗礼的心，被时间注入的情，然后用文字留下一些记忆罢了。<br/>&nbsp;不知从什么时候起，`,
-					'iten_desc': '@posted @ 2018/2/14 18:28 阿龙丶along ',
-					'item_num': '0',
-					'item_pl': '0',
-					'id': '0'
-				},
-					{
-					'item_time': '2019年2月14日',
-					'item_title': '你可以这样活',
-					'iten_cont': `生活除了苟且，还有诗意和远方，我知道我写不出那些充满诗意的文章，也不具备诗意的风采。我只是除了八小时流水线般的工作，其余时间就在文字与代码的世界里徜徉。因为，除了偶尔到远方走走，其余的我没有多大兴趣。<br/>&nbsp;文如其人，有时候文不如其人，当时的灵感创作了一篇文字，时过境迁，回头再看，那时的心境和这时候截然不同，这就是“时空转换”的概念。<br/>&nbsp;所以有些文字，千万别对号入座，有些文章，没有刻意的悲喜，没有刻意的做作，有的，只是一个被岁月洗礼的心，被时间注入的情，然后用文字留下一些记忆罢了。<br/>&nbsp;不知从什么时候起，`,
-					'iten_desc': '@posted @ 2018/2/14 18:28 阿龙丶along ',
-					'item_num': '0',
-					'item_pl': '0',
-					'id': '0'
-				},
-					{
-					'item_time': '2019年2月14日',
-					'item_title': '你可以这样活',
-					'iten_cont': `生活除了苟且，还有诗意和远方，我知道我写不出那些充满诗意的文章，也不具备诗意的风采。我只是除了八小时流水线般的工作，其余时间就在文字与代码的世界里徜徉。因为，除了偶尔到远方走走，其余的我没有多大兴趣。<br/>&nbsp;文如其人，有时候文不如其人，当时的灵感创作了一篇文字，时过境迁，回头再看，那时的心境和这时候截然不同，这就是“时空转换”的概念。<br/>&nbsp;所以有些文字，千万别对号入座，有些文章，没有刻意的悲喜，没有刻意的做作，有的，只是一个被岁月洗礼的心，被时间注入的情，然后用文字留下一些记忆罢了。<br/>&nbsp;不知从什么时候起，`,
-					'iten_desc': '@posted @ 2018/2/14 18:28 阿龙丶along ',
-					'item_num': '0',
-					'item_pl': '0',
-					'id': '0'
-				},
-					{
-					'item_time': '2019年2月14日',
-					'item_title': '你可以这样活',
-					'iten_cont': `生活除了苟且，还有诗意和远方，我知道我写不出那些充满诗意的文章，也不具备诗意的风采。我只是除了八小时流水线般的工作，其余时间就在文字与代码的世界里徜徉。因为，除了偶尔到远方走走，其余的我没有多大兴趣。<br/>&nbsp;文如其人，有时候文不如其人，当时的灵感创作了一篇文字，时过境迁，回头再看，那时的心境和这时候截然不同，这就是“时空转换”的概念。<br/>&nbsp;所以有些文字，千万别对号入座，有些文章，没有刻意的悲喜，没有刻意的做作，有的，只是一个被岁月洗礼的心，被时间注入的情，然后用文字留下一些记忆罢了。<br/>&nbsp;不知从什么时候起，`,
-					'iten_desc': '@posted @ 2018/2/14 18:28 阿龙丶along ',
-					'item_num': '0',
-					'item_pl': '0',
-					'id': '0'
-				},
-					{
-					'item_time': '2019年2月14日',
-					'item_title': '你可以这样活',
-					'iten_cont': `生活除了苟且，还有诗意和远方，我知道我写不出那些充满诗意的文章，也不具备诗意的风采。我只是除了八小时流水线般的工作，其余时间就在文字与代码的世界里徜徉。因为，除了偶尔到远方走走，其余的我没有多大兴趣。<br/>&nbsp;文如其人，有时候文不如其人，当时的灵感创作了一篇文字，时过境迁，回头再看，那时的心境和这时候截然不同，这就是“时空转换”的概念。<br/>&nbsp;所以有些文字，千万别对号入座，有些文章，没有刻意的悲喜，没有刻意的做作，有的，只是一个被岁月洗礼的心，被时间注入的情，然后用文字留下一些记忆罢了。<br/>&nbsp;不知从什么时候起，`,
-					'iten_desc': '@posted @ 2018/2/14 18:28 阿龙丶along ',
-					'item_num': '0',
-					'item_pl': '0',
-					'id': '0'
-				}
-			],
 			videolist: [
 				{"url": "http://www.along.ink/video/video_009.mp4"},                                   
 				{"url": ""},
@@ -160,33 +105,36 @@ export default {
 				{'title': 'Vue组件通讯', 'id': '12', 'link':'https://www.cnblogs.com/alongup/p/9255388.html'}
 			],
 			link: [
-				{'link': 'www.along.ink', 'name': 'along'},
-				{'link': 'www.along.ink', 'name': 'along'}
+				{'link': 'http://www.along.ink/load', 'name': 'along'},
+				{'link': 'http://www.along.ink/load', 'name': 'along'}
 			]
 		}	
+	},
+	created () {
+		this.$http.get("/posts").then(res => {
+			let data = res.data.data
+			this.data = data; 
+		});
 	},
 	mounted () {
 		this.video_load();
 		this.moner();
-		this.data.map((item,index)=>{
-			// console.log()
-			document.querySelectorAll('.J_cont')[index].innerHTML = item.iten_cont;
-		})
+		setTimeout(()=>{
+			this.data.map((item,index)=>{
+				this.$refs.cont[index].innerHTML = item.iten_cont;
+			})
+		},300)
 	},
 	methods: {
 		charLook (data, index) {
-			// console.log(data, index);
 		},
 		look_Article (index) {	//点击查看文章
 			this.ifShow = !this.ifShow;
 			this.ifStatus = !this.ifStatus;
-			// console.log(this.data[index], index)
-			// this.moduleinfo.item_cont = this.data[index].iten_cont;
 			this.$refs.J_cont.innerHTML = this.data[index].iten_cont;
 			this.moduleinfo.item_title = this.data[index].item_title;
 		},
 		prev () {	//点击返回主页
-			// this.$router.push({path: '/sy/cont'})
 			this.ifShow = !this.ifShow;
 			this.ifStatus = !this.ifStatus;
 		},
@@ -259,8 +207,6 @@ export default {
 			 window.open(target_url);
 		},
 		shar_wx () {	//微信分享
-			// var target_url = "http://qr.liantu.com/api.php?text=http://www.along.ink";
-			// window.open(target_url, 'weixin','height=320, width=320');
 			this.ifWx = !this.ifWx;
 		},
 		ifwx () {
@@ -268,7 +214,6 @@ export default {
 		},
 		moner () {
 			let moner = document.querySelectorAll('.J_pos_name');
-
 			for(let i=0;i<moner.length;i++){
 				moner[i].onmouseenter = ()=>{
 						for(let j=0;j<=2;j++){
@@ -289,7 +234,7 @@ export default {
 		}
 	},
 	components: {
-		Calendar,Foot
+		Calendar
 	}
 }
 </script>
@@ -397,7 +342,7 @@ export default {
 								line-height: 32px;
 								font-size: 14px;
 								// background: #45bcf9;
-								background: rgba(0, 0, 0, 0.2);
+								// background: rgba(0, 0, 0, 0.4);
 								display: block;
 								margin-left: 20px;
 								float: left;
@@ -435,6 +380,7 @@ export default {
 							overflow: hidden;
 							margin: 0 auto;
 							color: @b;
+							margin-top: 10px;
 						}
 					}
 				}

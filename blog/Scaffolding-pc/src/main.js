@@ -9,9 +9,9 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import './style/style.css'  // 覆盖组件样式
 // import './style/gloab.less'
-
-axios.defaults.baseURL = 'https://hudong.alicdn.com/api/data/v2/8772e30c74ec41fbbf01d636f08b8b62.js' // 数据接口
-
+import Mock from './mock/mock.js'
+axios.defaults.baseURL = 'http://mockjs.com/api' // 数据接口
+Vue.prototype.$http = axios
 // Vue.use(axios)
 Vue.use(ElementUI)
 Vue.use(VueRouter)

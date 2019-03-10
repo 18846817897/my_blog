@@ -3,10 +3,9 @@
     div.J_box(v-show='ifShow',ref='J_box')
       div.J_title
         p.J_photo
-          img.J_img(v-lazy="moduleinfo.item_pic", @mouseout='xzpic', ref='pic')
+          img.J_img(v-lazy="moduleinfo.item_pic", ref='pic')
         p.J_txt {{moduleinfo.item_txt}}
         p.J_desc {{moduleinfo.item_desc}}
-      //- aplayer(:music="music", class='J_music')
       ul.J_header
         router-link.J_header_cont(tag="li", :to='item.path' ,v-for='(item, key, index) in moduleinfo.items', :key='item.id', :data-id='item.id' ref='li') {{item.item_cont}}
         el-tooltip(content="1179273569" placement="top")
@@ -14,23 +13,16 @@
         el-tooltip(content="along17375354556" placement="top", class='j_wx')
           el-button 微信
       router-view
-    //- div.J_box_m(ref='J_phone')
-    //-   loading.al_loading(ref='loading',v-show='isLoading')
-    //-   aplayer(:music="music", class='J_music')
-    //-   div.J_header along丶
-    //-   div.J_header2 Dont't give up to easily.
-    //-   lunbo
+      Foot
 </template>
 <script>
 import Aplayer from 'vue-aplayer'
-import lunbo from './public/lunbo.vue'
-import loading from './public/loading.vue'
+import Foot from './Foot.vue'
 export default {
   name: 'sy',
   data () {
     return {
       ifShow: true,
-      isLoading: true,
       moduleinfo: {
         'item_pic': 'https://img.alicdn.com/tfs/TB1GMRZmxnaK1RjSZFtXXbC2VXa-640-640.jpg',
         'item_txt': '随行笔记,分享生活，分享技术',
@@ -52,40 +44,18 @@ export default {
     }
   },
   created () {
-    
-    },
+  },
   mounted () {
-    setTimeout(()=>{
-      this.isLoading = !this.isLoading;
-    },2000)
-    // setTimeout(()=>{
-    //     let width = document.body.clientWidth || window.screen.width;
-    //     if(width <= 750){
-    //       this.$refs.J_box.style.display = 'none';
-    //         this.$refs.J_phone.style.display = 'block';
-    //     }else{
-    //       this.$refs.J_box.style.display = 'block';
-    //         this.$refs.J_phone.style.display = 'none';
-    //     }
-    // },0)
   },
   methods: {
-    xzpic () {  //头像旋转
-      this.$refs.pic.style.transition=`All 1s ease-in-out`
-      this.$refs.pic.style.transform=`rotate(-360deg)`
-    },
   },
   components: {
-    Aplayer,lunbo,loading
+    Aplayer,Foot
   }
 }
 </script>
 
 <style lang="less" scoped>
-  @font-face {
-    font-family: font;
-    src: url("../assets/fonts/AaPrincessPeach.ttf")format("truetype");
-  }
   @b: #fff;
   ul li {
     list-style: none;
@@ -100,12 +70,9 @@ export default {
   .J_box{
     margin: 0 auto;
     overflow: hidden;
-    // background: black;
     background: url('http://www.ruanyifeng.com/images_pub/pub_57.jpg') top center no-repeat;
-    // background: url('http://www.yoyibk.top/content/uploadfile/tpl_options//bgimage.jpg') top center no-repeat;
     background-size: cover;
     position: relative;
-    font-family: font;
     cursor: pointer;
     .J_title{
       width: 1200px;
@@ -143,7 +110,6 @@ export default {
         line-height: 74px;
         font-size: 28px;
         color: @b;
-        font-family: font;
         text-indent: 10px;
         &:hover{
           color: salmon;
@@ -158,7 +124,6 @@ export default {
         line-height: 40px;
         font-size: 18px;
         color: @b;
-        font-family: font;
         text-indent: 10px;
         &:hover{
           color: salmon;
@@ -172,7 +137,6 @@ export default {
       border-radius: 50%;
     }
     .J_header{
-      // width: 100%;
       width: 1200px;
       min-width: 850px;
       height: 50px;
@@ -195,7 +159,6 @@ export default {
         font-size: 16px;
         float: left;
         display: block;
-        // font-family: "Microsoft YaHei" ! important;
         &:hover{
           color: salmon;
         }
@@ -207,45 +170,6 @@ export default {
     .styleObject{
       color: 'salmon';
       font-weight: bold;
-    }
-  }
-  // 移动
-  @lg: 75rem;
-  .J_box_m{
-    width: 750/@lg;
-    height: 1500/@lg;
-    overflow: hidden;
-    margin: 0 auto;
-    box-sizing: border-box;
-    // border: 1px red solid;
-    // background: rgba(0,0,0,.2);
-    background: url('http://www.ruanyifeng.com/images_pub/pub_57.jpg') top center no-repeat;
-    background-size: cover;
-    font-family: font;
-    .J_music{
-      width: 70px;
-      height: 70px;
-      overflow: hidden;
-      border-radius: 50%;
-    }
-    .J_header, .J_header2{
-      width: 750/@lg;
-      height: 60/@lg;
-      overflow: hidden;
-      margin: 0 auto;
-      box-sizing: border-box;
-      // border: 1px @b solid;
-      color: @b;
-      margin-top: 80/@lg;
-      font-size: 50/@lg;
-      line-height: 60/@lg;
-      text-indent: 30/@lg;
-      font-style: italic;
-    }
-    .J_header2{
-      margin-top: 10/@lg;
-      text-indent: 80/@lg;
-      font-size: 40/@lg;
     }
   }
 </style>
