@@ -6,12 +6,14 @@ import store from './store/store.js'
 import axios from 'axios'
 import VuewLazyLoad from 'vue-lazyload'
 import ElementUI from 'element-ui'
+import Moment from 'moment'
 import 'element-ui/lib/theme-chalk/index.css'
 import './style/style.css'  // 覆盖组件样式
 // import './style/gloab.less'
 import Mock from './mock/mock.js'
 axios.defaults.baseURL = 'http://mockjs.com/api' // 数据接口
 Vue.prototype.$http = axios
+Vue.prototype.moment = Moment
 // Vue.use(axios)
 Vue.use(ElementUI)
 Vue.use(VueRouter)
@@ -21,6 +23,7 @@ Vue.config.productionTip = false
 const router = new VueRouter({
   routes: routes,
   mode: 'history', // history , hash , abstract
+  base: '/vue/',
   scrollBehavior (to, from, savedPosition) {
     return {x: 0, y: 0}
   }

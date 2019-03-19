@@ -86,7 +86,7 @@
   overflow: hidden;
   margin: 0 auto;
   box-sizing: border-box;
-  border: 1px red solid;
+  /* border: 1px red solid; */
   margin-top: 30px;
   padding: 0;
 }
@@ -112,4 +112,20 @@
   box-sizing: border-box;
   border: 1px red solid;
   padding: 0;
+}
+/*日期选择*/
+.el-header{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #ffffff;
+}
+.el-input__inner{
+  background: rgba(0,0,0,.2);
+}
+.el-date-editor .el-range-separator{
+  color: #606266;
+}
+.el-date-editor .el-range-input{
+  background: rgba(0,0,0,.2);
 }
