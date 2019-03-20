@@ -11,10 +11,13 @@
 				@change="change",
 				value-format=" yyyy-MM-dd")
 			div.al_btn(ref='alBtn', @click='serchSenten()') 搜索
+			el-select(v-model="value2" filterable placeholder="请选择")
+				el-option(v-for="item in options", :key="item.value", :label="item.label", :value="item.value")
+			div.al_btn2(ref='alBtn2',@click='serchSenten2()') 搜索
 		el-main
 			p 内容
 		el-footer
-			p 翻页
+			el-pagination(:page-size="10", :pager-count="11", layout="prev, pager, next", :total="500", @current-change="handleCurrentChange")
 </template>
 
 <script>
@@ -22,10 +25,30 @@ export default {
 		name: 'weiyu',
 		data () {
 			return{
-        value: ''
+				value: '',
+				value2: '',
+				options: [{
+          value: '励志',
+          label: '励志'
+        }, {
+          value: '青春',
+          label: '青春'
+        }, {
+          value: '搞笑',
+          label: '搞笑'
+        }, {
+          value: '情感',
+          label: '情感'
+        }, {
+          value: '幽默',
+          label: '幽默'
+        }],
 			}
 		},
 		created () {
+			this.$http.get("/wy").then(res => {
+				console.log(res)
+			});
 		},
 		mounted () {
 			
@@ -39,6 +62,12 @@ export default {
 				if(!isNaN(startTime) && !isNaN(endTime)){
 					console.log(startTime,endTime)
 				}
+			},
+			serchSenten2 () {
+				alert(this.value2)
+			},
+			handleCurrentChange (val) {
+				console.log(val)
 			}
 		},
 		components: {
@@ -56,7 +85,7 @@ export default {
 		margin: 20px auto;
 		background: rgba(0, 0, 0, 0.2);
 		border-radius: 10px;
-		.al_btn{
+		.al_btn,.al_btn2{
 			width: 110px;
 			height: 40px;
 			overflow: hidden;
@@ -67,7 +96,7 @@ export default {
 			font-size: 16px;
 			margin-left: 30px;
 			border: 1px @b solid;
-			color: #606266;
+			color: #DCDFE6;
 		}
 	}
 </style>
