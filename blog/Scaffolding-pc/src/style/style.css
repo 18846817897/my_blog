@@ -94,13 +94,15 @@
 /*微语布局main组件*/
 .el-main{
   width: 1150px;
-  height: 68%;
+  height: 69%;
   overflow: hidden;
   margin: 0 auto;
   margin-top: 30px;
   box-sizing: border-box;
-  border: 1px #ffffff solid;
+  /* border: 1px #ffffff solid; */
   padding: 0;
+  /* background: rgba(0,0,0,.6); */
+  /* border: 1px blue solid; */
 }
 /*微语布局foot组件*/
 .el-footer{
@@ -138,10 +140,10 @@
 }
 .el-input--suffix .el-input__inner{
   width: 120px;
-  margin-left: 200px;
+  /* margin-left: 200px; */
 }
 .el-select-dropdown{
-  left: 742px !important;
+  /* left: 1050px !important; */
 }
 /*翻页组件*/
 .el-pagination{
