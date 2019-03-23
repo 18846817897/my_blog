@@ -39,19 +39,20 @@ export default {
 					{value: '幽默',label: '幽默'}
 				],
 				data: '',
-				newdata: ''
+				newdata: ''	,//总数据
+				dataPage: ''
 			}
 		},
 		created () {
 			this.$http.get("/wy").then(res => {
+				console.log(res,'微语');
 				let data = res.data.data
 				let arr = []; // 创建数组分割数
 				for (var i = 0; i < data.length; i += 5) { // 对数据进行分割处理
 					arr.push(data.slice(i, i + 5));
 				}
 				this.data = arr[0];
-				this.newdata = arr;
-
+				this.newdata = this.dataPage = arr;
 			});
 		},
 		mounted () {
@@ -63,17 +64,46 @@ export default {
 			change(){	//选择日期时默认执行
 			},
 			serchSenten () {	//日期范围搜索
-				let startTime = new Date(this.value[0]).getTime(),
-						endTime   = new Date(this.value[0]).getTime();
+				let startTime = new Date(`${this.value[0]}`).getTime(),
+						endTime   = new Date(`${this.value[1]}`).getTime(),
+						arr = [],
+						arr2 = [];
 				if(!isNaN(startTime) && !isNaN(endTime)){
-					console.log(startTime,endTime)
+					this.newdata.map((item,index)=>{
+						item.forEach((itm,idx) => {
+							let time = new Date(`${itm.time}`).getTime();
+							if(time >= startTime && time <= endTime){
+								arr.push(itm);
+							}
+						});
+					})
+					for(let i=0;i<arr.length;i+=5){
+						arr2.push(arr.slice(i,i+5))
+					}
+					// console.log(arr2,'arr2');
+					this.data = arr2[0];
+					this.dataPage = arr2;
 				}
 			},
 			serchSenten2 () {	//模糊搜索
-				alert(this.value2)
+				let value = this.value2;
+				let arr = [];
+				let arr2 = []; // 创建数组分割数
+				this.newdata.map((item,index)=>{
+					item.map((itm,idx)=>{
+						if(itm.category === value){
+							arr.push(itm);
+						}
+					})
+				})
+				for (var i = 0; i < arr.length; i += 5) { // 对数据进行分割处理
+					arr2.push(arr.slice(i, i + 5));
+				}
+				this.data = arr2[0];
+				this.dataPage = arr2;
 			},
 			handleCurrentChange (val) {	//分页
-				this.data = this.newdata[val-1]
+				this.data = this.dataPage[val-1]
 			}
 		},
 		components: {

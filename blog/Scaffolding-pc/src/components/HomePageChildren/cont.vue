@@ -5,7 +5,7 @@
 				p.J_mod_header
 					span.J_head_tit 微信打开扫一扫
 					span.J_header_rel(@click='ifwx()') X
-				img.J_wx(src='http://qr.liantu.com/api.php?text=http://www.along.ink')
+				img.J_wx(src='')
 		div.al_cont
 			div.J_left
 				ul.J_ul(v-for='(item,index) in data', @click='look_Article(index)', ref='J_ul', v-show='ifStatus')
@@ -112,6 +112,7 @@ export default {
 	},
 	created () {
 		this.$http.get("/posts").then(res => {
+			console.log(res,'文章')
 			let data = res.data.data
 			this.data = data; 
 		});
