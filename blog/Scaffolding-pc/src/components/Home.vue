@@ -5,9 +5,9 @@
       p.al_motto  {{moduleinfo.item_motto}}
       p.al_hx
       p.grow(@click='go_grow')  {{moduleinfo.item_grow}}
-      p.skill {{moduleinfo.item_skill}}
+      p.skill(@click='go_bowen') {{moduleinfo.item_skill}}
       p.photo {{moduleinfo.item_photo}}
-      p.message {{moduleinfo.item_message}}
+      p.message(@click='go_ly') {{moduleinfo.item_message}}
       p.al_link  {{moduleinfo.item_more}}
     aplayer(:music="music", class='J_music')
       div.J_back
@@ -46,6 +46,12 @@ export default {
     go_grow () {
       this.$router.replace('/sy');
     },
+    go_bowen () {
+      this.$router.replace('/bw');
+    },
+    go_ly () {
+      this.$router.replace('/ly');
+    }
   },
   mounted () {
    },

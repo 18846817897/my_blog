@@ -1,6 +1,8 @@
 import Home from './components/Home'
 // import Page from './components/Page'
 const Sy = () => import('./components/HomePage')  //按需加载
+const Bw = () => import('./components/Bowen')
+const Ly = () => import('./components/Message')
 
 // 二级路由
 const Cont  = () => import('./components/HomePageChildren/cont')
@@ -23,5 +25,7 @@ export default [
       {path: '/sy/brief', name: 'brieflink', component: Brief}
     ]
   },
+  {path: '/bw', name: 'Bowen', component: Bw},
+  {path: '/ly', name: 'Message', component: Ly},
   {path: '*', redirect: '/home'}
 ]

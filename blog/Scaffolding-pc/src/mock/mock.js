@@ -115,3 +115,4 @@ Mock.mock(`${domain}/wy`, `get`, ()=>{
     time: new Date().getTime()
   })
 })
+   
