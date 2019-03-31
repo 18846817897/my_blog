@@ -115,4 +115,13 @@ Mock.mock(`${domain}/wy`, `get`, ()=>{
     time: new Date().getTime()
   })
 })
-   
+
+//博客类目标题
+Mock.mock(`${domain}/title`, `get`, ()=>{
+  return({
+    data:['技术文章','开发问题','未知待续','未知待续','未知待续'],
+    message: '请求成功',
+    code: 200,
+    time: new Date().getTime()
+  })
+})
