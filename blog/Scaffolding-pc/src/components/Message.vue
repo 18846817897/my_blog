@@ -9,7 +9,7 @@
         input.al_iptName(type='text',ref='iptName')
       div.al_cont
         p.al_contTitle 留言：(您还可以再输入{{num}}字)
-        textarea.al_iptCont(maxlength="50",ref='iptCont')
+        textarea.al_iptCont(maxlength="50",ref='iptCont',v-on:input='iptNum')
       div.al_btnLy(@click='release')
     div.al_head
       div.al_headBox
@@ -109,6 +109,10 @@ export default {
     },
     goHome () { //回到首页
       this.$router.push('/home')
+    },
+    iptNum () {
+      let num = 50 - this.$refs.iptCont.value.length;
+      this.num = num;
     }
   },
   components: {

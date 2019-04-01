@@ -21,7 +21,7 @@ export default {
 		name: 'brief',
 		data () {
 			return {
-				'text':'欢迎来到我的博客，感到十分荣幸.我叫杨文龙，平常大家都叫我阿龙,我是一个90后，今年22岁了，现在从事前端开发这个工作，就是大家口中的程序员。人们常说程序员都有一个特点，那就是钱多话少死的早.那是因为从事编程这个职业，都经常加班熬夜，也是十分耗费脑力的一份工作，常常为了解决一个问题，抓耳挠晒.最初选择这个行业，完全是因为觉得有趣，慢慢接触了之后，有感觉到很乏味，枯燥。因为常常一个人学习，工作到深夜。如果你不是对编程特别感兴趣，就不要去深入了解它，学习它。我是2018年毕业的，毕业之后独自一人来到上海打拼，对于刚毕业的我来说，并不是那么容易的，昂贵的房租，高价的快餐，成为我一天到晚最操心的事情，早晚高峰的地铁真是人潮人海，每天还要努力的工作，学习。呆了半年左右的时间，我来到离父母比较近的地方，杭州。在魔都的快节奏下，杭州的节奏就慢了下来，在公司附近租了个房子，一年一万三千多，不到十个平方.离公司只有十分钟的路程，还是很不错了.最后送给您一句话，人生的道路上，选择比努力更重要，选择了就不要放弃.',
+				'text':'人生的道路上，选择比努力更重要，选择了就不要放弃.',
 				'title':'当挫折造访迷茫敲门失败破窗而入 我们要保持的就是初心不变始终如一 在路上得到许多也失去许多 触碰结果是做一个孤独的守梦人 也要毅然前行',
 				'titleEng': 'When frustration visits confusion knocks on doors and fails to break windows, what we want to keep is that we always have the same mind on the way to get a lot of touches and lose a lot of touches. As a result, we have to be a lonely Dreamkeeper and go ahead resolutely.',
 			}
